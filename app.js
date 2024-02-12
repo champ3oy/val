@@ -283,29 +283,30 @@ canvas.addEventListener("click", () => {
     });
   }, 10);
 
-  let message = `Buckle up, sweetheart, because this Valentine's Day is about to get a whole lot more dazzling, and it's all thanks to the one and only – yours truly. 
-  
-  Jokes aside:
-  My love, as Valentine's Day graces us with its presence, I find myself reflecting on the beautiful journey we've shared. In the tapestry of our time together, each thread is woven with moments of joy, laughter, and profound connection. Today, as we celebrate the essence of love, my heart swells with gratitude for the depth of emotions you've brought into my life.
+  let message = `Buckle up, sweetheart, because this Valentine's Day is about to get a whole lot more dazzling, and it's all thanks to the one and only – yours truly. 😎🌟
 
-In the quiet moments, I appreciate the sincerity in your eyes, the warmth of your touch, and the unspoken understanding between us. This day is not just about expressing affection; it's a tribute to the profound bond we've built. Your presence is a sanctuary, and your love is a melody that echoes in the chambers of my heart.
-
-As we navigate the complexities of life hand in hand, I am reminded that love is not just a sentiment; it's a commitment to growth, understanding, and unwavering support. So, here's to us — to the love that transcends, evolves, and withstands the tests of time. Happy Valentine's Day, my love. You are my heart's greatest treasure.`;
+  Jokes aside: 🌈 On Valentine's Day, I reflect on our beautiful journey, woven with joy, laughter, and profound connection. Grateful for the sincerity in your eyes, warmth of your touch, and unspoken understanding. This day is a tribute to our profound bond. Your love is a melody echoing in my heart. 🎶 Cheers to a love that transcends, evolves, and withstands life's tests. Happy Valentine's Day, my greatest treasure. 💖✨`;
   let phone = "233593152134";
 
-  const url = `https://tixvote.com/api/sendSMS?phoneNumber=${phone}&message=${message}`;
+  const url = `https://tixvote.com/api/sendSMS`;
 
-  fetch(url)
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify({
+      phoneNumber: phone,
+      message,
+    }),
+  })
     .then((response) => response.json())
     .then((data) => {
+      console.log(data, ">>>d");
       localStorage.setItem("vals_cirlorm", "true");
       location.reload();
-      console.log(data);
     })
 
     .catch((error) => console.error("Error:", error));
 
-  window.open(url, "_blank");
-  localStorage.setItem("vals_cirlorm", "true");
-  location.reload();
+  //   window.open(url, "_blank");
+  //   localStorage.setItem("vals_cirlorm", "true");
+  //   location.reload();
 });
