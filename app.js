@@ -5,7 +5,7 @@ document.get;
 window.onload = function () {
   let con = document.getElementById("con");
   let con2 = document.getElementById("con2");
-  let val = localStorage.getItem("vals_cirlomr");
+  let val = localStorage.getItem("vals_cirlorm");
 
   if (val == null) {
     con.style.display = "flex";
@@ -283,28 +283,29 @@ canvas.addEventListener("click", () => {
     });
   }, 10);
 
-  const url = "https://devapi.fayasms.com/messages";
-  const headers = new Headers({
-    "Content-Type": "application/json",
-    "fayasms-developer": "09311836.9ICZY7Njg1nBKZJRgedfsqnlfb8Hz2bM",
-  });
+  let message = `Buckle up, sweetheart, because this Valentine's Day is about to get a whole lot more dazzling, and it's all thanks to the one and only – yours truly. 
+  
+  Jokes aside:
+  My love, as Valentine's Day graces us with its presence, I find myself reflecting on the beautiful journey we've shared. In the tapestry of our time together, each thread is woven with moments of joy, laughter, and profound connection. Today, as we celebrate the essence of love, my heart swells with gratitude for the depth of emotions you've brought into my life.
 
-  const data = {
-    sender: "TeaseAfrica",
-    message: "Hello world",
-    recipients: ["233540920557"],
-  };
+In the quiet moments, I appreciate the sincerity in your eyes, the warmth of your touch, and the unspoken understanding between us. This day is not just about expressing affection; it's a tribute to the profound bond we've built. Your presence is a sanctuary, and your love is a melody that echoes in the chambers of my heart.
 
-  const requestOptions = {
-    method: "POST",
-    headers: headers,
-    body: JSON.stringify(data),
-  };
+As we navigate the complexities of life hand in hand, I am reminded that love is not just a sentiment; it's a commitment to growth, understanding, and unwavering support. So, here's to us — to the love that transcends, evolves, and withstands the tests of time. Happy Valentine's Day, my love. You are my heart's greatest treasure.`;
+  let phone = "233593152134";
 
-  fetch(url, requestOptions)
+  const url = `https://tixvote.com/api/sendSMS?phoneNumber=${phone}&message=${message}`;
+
+  fetch(url)
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+      localStorage.setItem("vals_cirlorm", "true");
+      location.reload();
+      console.log(data);
+    })
+
     .catch((error) => console.error("Error:", error));
 
-  localStorage.setItem("vals_cirlotm", "true");
+  window.open(url, "_blank");
+  localStorage.setItem("vals_cirlorm", "true");
+  location.reload();
 });
