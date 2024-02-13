@@ -286,7 +286,7 @@ canvas.addEventListener("click", () => {
   let message = `Buckle up, sweetheart, because this Valentine's Day is about to get a whole lot more dazzling, and it's all thanks to the one and only – yours truly. 😎🌟
 
   Jokes aside: 🌈 On Valentine's Day, I reflect on our beautiful journey, woven with joy, laughter, and profound connection. Grateful for the sincerity in your eyes, warmth of your touch, and unspoken understanding. This day is a tribute to our profound bond. Your love is a melody echoing in my heart. 🎶 Cheers to a love that transcends, evolves, and withstands life's tests. Happy Valentine's Day, my greatest treasure. 💖✨`;
-  let phone = "233532908460";
+  let phone = "233534287021";
 
   const url = `https://tixvote.com/api/sendSMS`;
 
